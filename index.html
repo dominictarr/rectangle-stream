@@ -1,0 +1,16 @@
+
+<script src="./index.js"></script>
+<script>
+setTimeout(function () {
+  var ws = new WebSocket('ws://localhost:8000')
+
+  function send (msg) {
+    console.log(msg)
+    ws.send('string' === typeof msg ? msg : JSON.stringify(msg))
+  }
+
+  ws.onmessage = function (msg) {
+    onMsg(JSON.parse(msg.data), null, send)
+  }
+})
+</script>
