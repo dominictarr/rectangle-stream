@@ -37,6 +37,11 @@ function onMsg (msg, el, notify) {
   else if(msg.listen) {
     var events = Array.isArray(msg.listen)
       ? msg.listen : msg.listen.split(',')
+    //TODO: clean events. also, add id?
+    //DOM events are really messy, all sorts of crap stuck on them
+    //also, some things don't serialize well (like target)
+    //so i think answer is not to send the events as they are
+    //but to map them to something moreuseful first.
     events.forEach(function (event) {
       el.addEventListener(event, function (ev) {
         var msg = {}
