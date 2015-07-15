@@ -48,6 +48,22 @@ simply specify what element we are refering to.
 ```
 This will update the page to `<h1 id=heading>Hello World!!!</h1>`
 
+What about data going the other way? we need to know when the user
+has clicked on things etc! Well, we can do what the terminal does.
+The modern terminal actually supports all sorts of crazy things,
+like mouse, even, but you have to enable it by sending a command.
+
+``` js
+{"listen": ["click"], "id": "heading"}
+```
+now we'll be sent an event when that heading is clicked on!
+
+## see also
+
+The other thing that does actually work like this is X-windows,
+however that uses a binary protocol, which makes it pretty hard
+to understand and implement, and so you need to use a library.
+
 ## License
 
 MIT
